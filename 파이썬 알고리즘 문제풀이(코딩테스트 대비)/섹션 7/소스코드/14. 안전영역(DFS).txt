@@ -1,0 +1,43 @@
+import sys
+
+#sys.stdin = open("input.txt", "r")
+#단지번호붙이기나 섬나라같은 격자판으로 특정 넓이 찾는건 dfs나 bfs 뭐 쓰던 상관 없음.
+#높이 1부터 했는데 통과 못했다고 하심. 그래서 0부터 했는데 통과했다고..? 하여튼 0부터 돌린다고 함.
+dx = [-1, 0, 1, 0]
+dy = [0, 1, 0, -1]
+sys.setrecursionlimit(10 ** 6)  #파이썬에서 재귀 돌릴떄 타임리미트 설정
+#10의 6제곱정도의 시간 리미트 이거 넘어가면 자동으로 재귀 종료
+#이거 써줘야 백준같은 사이트에서 채점 됨.
+#파이썬 재귀 쓸떄 이런거 써주자. 그냥 되면 해도 되는데 넣는걸 추천!
+
+
+def DFS(x, y, h):
+    ch[x][y] = 1
+    for i in range(4):  #4방향 탐색
+        xx = x + dx[i]
+        yy = y + dy[i]
+        if 0 <= xx < n and 0 <= yy < n and ch[xx][yy] == 0 and board[xx][yy] > h:
+            #경계선 밖으로 나가면 안됨.
+            DFS(xx, yy, h)
+
+
+if __name__ == "__main__":
+    n = int(input())
+    cnt = 0 #높이 정해놓고 안전영역 몇개인가
+    res = 0 #최종적인 답.
+    board = [list(map(int, input().split())) for _ in range(n)]#지도 정보 읽음
+
+    for h in range(100):    #0~99   100은 할 필요 없음 100으로 정하면 100이하가 잠기면 안전영역은 0. 근데 0은 해야됨(0하면 안전영역은 전체가 됨 그러니까 1개 나옴)
+        ch = [[0] * n for _ in range(n)] #다 0으로 된 2차원 체크리스트 생성.
+        cnt = 0 #높이 새롭게 바뀔때마다 cnt초기화
+        for i in range(n):
+            for j in range(n):
+                if ch[i][j] == 0 and board[i][j] > h:
+                    #ch[i][j] == 0 이건 방문 안했고 격자판 부분이 h보다 커야됨(board[i][j] > h:)
+                    #그럼 안전지역이 발견된거 그래서 카운트 1개 추가
+                    cnt += 1
+                    DFS(i, j, h)
+        res = max(res, cnt) #기존 res보다 cnt가 크면 res가 바뀜(최대값 찾는거)
+        if cnt == 0:    #안전영역이 0개면 리턴.(포문 멈춤)
+            break
+    print(res)

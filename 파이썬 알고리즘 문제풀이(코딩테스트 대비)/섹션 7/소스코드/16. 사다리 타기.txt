@@ -1,0 +1,27 @@
+import sys
+sys.stdin=open("input.txt", "r")
+def DFS(x, y):  #x행, y열 번호
+    ch[x][y]=1  #방문했다라고 1로 체크
+    if x==0:    #0이 되면 맨 위의 행으로 온거
+        print(y)    #y는 열번호
+    else:       #왼쪽과 오른쪽으로 보는거
+        if y-1>=0 and board[x][y-1]==1 and ch[x][y-1]==0:
+            #y - 1 이 부분은 0보다 커야(y의 왼쪽지점)
+            #[x][y-1] 여기도 열번호의 왼쪽지점 1이면 갈수 있음.
+            #근데 갈려고 하는 지점이 방문 안했어야됨(ch[x][y-1]==0)
+            DFS(x, y-1) #이게 왼쪽으로 이동
+        elif y+1<10 and board[x][y+1]==1 and ch[x][y+1]==0:
+            #y+1<10 이 부분은 10보다 작아야(y의 오른쪽지점)
+            #[x][y+1] 여기도 열번호의 오른쪽지점 1이면 갈수 있음.
+            #근데 갈려고 하는 지점이 방문 안했어야됨(ch[x][y+1]==0)
+            DFS(x, y-1) #이게 왼쪽으로 이동
+            DFS(x, y+1) #이게 오른쪽으로 이동
+        else:           #왼쪽, 오른쪽 다 안되면 위쪽으로 이동
+            DFS(x-1, y)
+
+
+board=[list(map(int, input().split())) for _ in range(10)]
+ch=[[0]*10 for _ in range(10)]  #다 0으로 초기화
+for y in range(10):
+    if board[9][y]==2:  #행번호는 9(맨 아래)에서 시작, 열은 0~9로 돔
+        DFS(9, y)

@@ -1,0 +1,11 @@
+### 선택 정렬 (오름차순 기준)
+data = [40, 88, 62, 15, 24, 75, 35]   # 정렬하려는 데이터
+sorted_data = []                      # 정렬한 결과를 담는 리스트
+# Step 1: 원소 중에서 가장 작은 값을 갖는 원소를 골라서 가장 왼쪽에 위치
+# Step 2: 가장 왼쪽에 위치한 최솟값을 원래 리스트(data)에서 삭제
+# Step 3: 원래 리스트(data)에 원소가 남아 있지 않을 때까지 Step 1부터 반복
+while data:  # data에 원소가 남아 있다면 True, 없으면 False
+    sorted_data.append(min(data))
+    data.remove(min(data))
+# Step 4: 정렬 결과를 담고 있는 리스트(sorted_data)를 출력
+print("정렬 데이터: {}".format(sorted_data))
