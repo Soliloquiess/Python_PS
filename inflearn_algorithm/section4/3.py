@@ -41,6 +41,8 @@ while lt <= rt:
     if mid >= maxx and Count(mid) <= m:
         # Count(mid)<=m 이건 필요한 dvd개수가 넘어오면 m이하여야됨.
         # 2가 리턴되면 3장만에는 당연히 가능.
+
+
         # 반례를 수정하기 위해 mid>maxx라는 같을 넣어줘서
         # 가장 긴 노래보다는 dvd용량이 크거나 같아야 한다.
         # mid>=maxx 이 조건이 통과하면  count 함수 호출.
