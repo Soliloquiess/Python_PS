@@ -8,16 +8,6 @@ tot=a[0] #tot는 a[0]으로 해두면 1이고(lt부터 rt바로 전 자료 까�
 cnt=0
 
 #무조건 lt는 rt보다 작거나 같아야.
-import sys
-#sys.stdin = open("input.txt", 'r')
-n, m=map(int, input().split())
-a=list(map(int, input().split()))
-lt=0 #인덱스 0을 가리키는 거.
-rt=1 #인덱스 1을 가리키는 거.(인덱스 0의 바로 오른쪽 가리킴)
-tot=a[0] #tot는 a[0]으로 해두면 1이고(lt부터 rt바로 전 자료 까지의 연속부분의 합)
-cnt=0
-
-#무조건 lt는 rt보다 작거나 같아야.
 #rt가 n인 상황에서 또 +1인 상황오면 그 때 break하는거
 #lt랑 rt가 같아질수 는 있는데 lt가 더 커질 수는 없음(rt전까지의 합인데 그럼 0이므로)
 #lt와 rt가 같으면 무조건 0(rt 전 까지의 합이므로)
@@ -41,6 +31,3 @@ while True:
         tot-=a[lt]
         lt+=1
 print(cnt)
-
-8 3
-1 2 1 3 1 1 1 2

@@ -15,6 +15,3 @@ for i in range(1, res+1):   #res까지 돌면서
     if res%i==0:            #i로 나눴을때 0이 되면 그 i값이 약수값이고
         cnt+=1              #약수 찾는게 아니라 약수 값 찾으라 했으니까 cnt 출력하면 개수 출력하는거.
 print(cnt)
-
-
-#g0en2Ts8eSoft

@@ -23,3 +23,7 @@ for index, x in enumerate(a):   #인덱스 = 학생번호 , x= 성적
             score=x
             res=index+1
 print(ave, res)
+
+
+10
+45 73 66 87 92 67 75 79 75 80
