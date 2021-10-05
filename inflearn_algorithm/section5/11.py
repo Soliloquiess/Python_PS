@@ -1,6 +1,6 @@
 import sys
 import heapq as hq
-sys.stdin=open("input.txt", "r")
+# sys.stdin=open("input.txt", "r")
 a=[]
 
 #앞의 최소힙 코드에서 조금만 변경하면 됨.
