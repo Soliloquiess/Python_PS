@@ -26,4 +26,4 @@ if __name__=="__main__":
     a=list(map(int, input().split()))
     total=sum(a)
     DFS(0, 0)
-    print("NO") #프로그램 종료 안되고 여기로 오면 NO 출력ㄴ
+    print("NO") #프로그램 종료 안되고 여기로 오면 NO 출력

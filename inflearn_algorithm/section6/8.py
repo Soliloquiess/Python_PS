@@ -1,5 +1,5 @@
 import sys
-#sys.stdin=open("input.txt", "r")
+# sys.stdin=open("input.txt", "r")
 def DFS(L):
     global cnt
     if L==m:    #레벨이 m이되면 그대로 출력
