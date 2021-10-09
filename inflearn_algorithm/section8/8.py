@@ -38,7 +38,7 @@ if __name__=="__main__":
 
     arr=[list(map(int, input().split())) for _ in range(n)]
     dy=[[0]*n for _ in range(n)]#메모이제이션 하기 위한 배열 잡음
-
+    
     print(DFS(n-1, n-1))    #이걸 도착지점으로 봄.
 
 #top down은 재귀를 쓴다.(상태트리 사용)
