@@ -12,6 +12,7 @@ def solution(nums):
     elif len(nums) < pick:
         answer = len(nums)
     return answer
+
 print(solution([3, 1, 2, 3]))
 
 # def solution(nums):

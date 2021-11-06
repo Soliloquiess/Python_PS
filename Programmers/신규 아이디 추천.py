@@ -39,6 +39,7 @@ def solution(new_id):
     return answer
 
 
+print(solution("...!@BaT#*..y.abcdefghijklm"));
 # import re  # 정규 표현식을 사용하기 위한 re모듈 로드
 #
 #

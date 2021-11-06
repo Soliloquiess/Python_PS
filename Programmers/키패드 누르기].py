@@ -29,7 +29,8 @@ def solution(numbers, hand):
             right_d = 0
 
             # 좌표 거리 계산해주기
-            for a, b, c in zip(left_s, right_s, now):
+            for a, b, c in zip(left_s, right_s, now):   #여기서 a,b,c를 2번 더하는구나. ㅇㅇ
+                #가로길이에서 구한 값 1번, 세로길이에서 구한 값 1번
                 left_d += abs(a - c)
                 right_d += abs(b - c)
 
@@ -57,37 +58,4 @@ def solution(numbers, hand):
 
     return answer
 
-
-# def solution(numbers, hand):
-#     answer = ''
-#     L_cur = 10
-#     R_cur = 12
-#     for n in numbers:
-#         print(L_cur, R_cur)
-#         if n == 1 or n == 4 or n == 7:
-#             answer += "L"
-#             L_cur = n
-#         elif n == 3 or n == 6 or n == 9:
-#             answer += "R"
-#             R_cur = n
-#         else:
-#             if n == 0:
-#                 n = 11
-#
-#             L_dis = abs(L_cur - n) // 3 + abs(L_cur - n) % 3
-#             R_dis = abs(R_cur - n) // 3 + abs(R_cur - n) % 3
-#
-#             if L_dis > R_dis:
-#                 answer += "R"
-#                 R_cur = n
-#             elif R_dis > L_dis:
-#                 answer += "L"
-#                 L_cur = n
-#             else:
-#                 if hand == "right":
-#                     answer += "R"
-#                     R_cur = n
-#                 else:
-#                     answer += "L"
-#                     L_cur = n
-#     return answer
+print(solution([1, 3, 4, 5, 8, 2, 1, 4, 5, 9, 5],"right"));

@@ -14,9 +14,10 @@ def solution(N, stages):
         length -= count
 
     # 실패율 기준으로 내림차순
-    answer = sorted(answer, key=lambda t: t[1], reverse=True)
+    answer = sorted(answer, key=lambda t: t[1], reverse=True)   #이렇게 하면 t[1] 즉 키:값을 기준으로 t[1]에 해당하는 값을 기준으로 정렬한다.
+    # 만약 t[0]이렇게 하면 키를 기준으로 정렬함.
     answer = [i[0] for i in answer]
     return answer
 
-# print(solution(5,[2, 1, 2, 6, 2, 4, 3, 3]))
+print(solution(5,[2, 1, 2, 6, 2, 4, 3, 3]))
 #https://jeongchul.tistory.com/653

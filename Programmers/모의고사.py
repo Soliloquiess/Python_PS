@@ -1,7 +1,7 @@
 def rank(arr):
     maxValue = max(arr)
     answer = []
-    for i, v in enumerate(arr):
+    for i, v in enumerate(arr): #enumerate는 키값, i는 키(0) v는 값(5). 그다음도 마찬가지 키(1), 값(0). 키(2) 값(0) 이렇게
         if v >= maxValue:
             answer.append(i + 1)
     answer.sort()

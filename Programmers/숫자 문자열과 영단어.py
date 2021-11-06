@@ -10,3 +10,5 @@ def solution(s):
     for key, value in dic.items():
         answer = answer.replace(key, value)
     return int(answer)
+
+print(solution("one4seveneight"));
