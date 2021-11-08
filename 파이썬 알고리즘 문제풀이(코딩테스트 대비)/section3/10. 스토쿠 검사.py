@@ -30,7 +30,12 @@ def check(a):
     return True #죽복이 없어서 정상종료
 
 a=[list(map(int, input().split())) for _ in range(9)]
-if check(a):
-    print("YES")
-else:
-    print("NO")
+def solution(a):
+    if check(a):
+        # print("YES")
+        return "YES";
+    else:
+        # print("NO")
+        return "NO";
+
+print(solution(a));

@@ -1,5 +1,5 @@
 
-def matrixsum(matrix, n):
+def solution(matrix, n):
     ans=0;
 
     for i in range(n):  # 0qn
@@ -82,7 +82,7 @@ if __name__ == '__main__':
     n=int(input())
     matrix = [list(map(int, input().split())) for _ in range(n)]
 
-    print(matrixsum(matrix, n));
+    print(solution(matrix, n));
 
 
 
