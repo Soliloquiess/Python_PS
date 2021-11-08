@@ -30,26 +30,28 @@ def Count(capacity):
 n, m = map(int, input().split())
 Music = list(map(int, input().split()))
 
+def solution(n,m,Music):
+    maxx = max(Music)# 노래들 중 가장 큰 분을 같는 노래를 찾아줘야 그걸 maxx에 넣어줬다.
+    lt = 1
+    rt = sum(Music)
+    res = 0
 
-maxx = max(Music)# 노래들 중 가장 큰 분을 같는 노래를 찾아줘야 그걸 maxx에 넣어줬다.
-lt = 1
-rt = sum(Music)
-res = 0
-
-while lt <= rt:
-    mid = (lt + rt) // 2
-    if mid >= maxx and Count(mid) <= m:
-        # Count(mid)<=m 이건 필요한 dvd개수가 넘어오면 m이하여야됨.
-        # 2가 리턴되면 3장만에는 당연히 가능.
+    while lt <= rt:
+        mid = (lt + rt) // 2
+        if mid >= maxx and Count(mid) <= m:
+            # Count(mid)<=m 이건 필요한 dvd개수가 넘어오면 m이하여야됨.
+            # 2가 리턴되면 3장만에는 당연히 가능.
 
 
-        # 반례를 수정하기 위해 mid>maxx라는 같을 넣어줘서
-        # 가장 긴 노래보다는 dvd용량이 크거나 같아야 한다.
-        # mid>=maxx 이 조건이 통과하면  count 함수 호출.
+            # 반례를 수정하기 위해 mid>maxx라는 같을 넣어줘서
+            # 가장 긴 노래보다는 dvd용량이 크거나 같아야 한다.
+            # mid>=maxx 이 조건이 통과하면  count 함수 호출.
 
-        res = mid  # 이 경우 답임.
-        rt = mid - 1  # 그리고 더 좋은 답을 찾기위해 mid-1해서 탐색해줌.
-    else:
-        lt = mid + 1
+            res = mid  # 이 경우 답임.
+            rt = mid - 1  # 그리고 더 좋은 답을 찾기위해 mid-1해서 탐색해줌.
+        else:
+            lt = mid + 1
 
-print(res);
+    # print(res);
+    return res;
+print(solution(n,m,Music))
