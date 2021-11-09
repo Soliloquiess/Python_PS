@@ -13,6 +13,7 @@ def DFS(L, sum):
     else:
         for i in range(n):  #동전 개수만큼 돔 (n만큼)
             DFS(L+1, sum+a[i])  #레벨은 1씩 증가
+    return res;
 
 if __name__=="__main__":
     n=int(input())  #동전의 종류 개수
@@ -22,5 +23,5 @@ if __name__=="__main__":
     a.sort(reverse=True)#1원짜리 쭉 들어가면 너무 깊이들어감
     #근데 내림차순 하면 어떻게하든 5원짜리부터 들어감(1,2,5)순에서 (5,2,1)순이므로
     #5원부터 탐색하게 하면 시간복잡도를 확 줄이기가 가능하다.(아니면 앞에 1원부터 하면 존나 오래걸렸을것)
-    DFS(0, 0)
+    print(DFS(0, 0))
     print(res)

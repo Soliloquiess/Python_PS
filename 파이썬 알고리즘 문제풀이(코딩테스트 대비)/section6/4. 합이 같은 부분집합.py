@@ -14,6 +14,8 @@ def DFS(L, sum):
     if L==n:
         if sum==(total-sum): #(total-sum) 이 부분이 내가 만든 부분집합의 반대편임.
             print("YES")
+            # return "YES"
+
             sys.exit(0) #yes 출력하고 바로 프로그램 종료(함수 종료가 아닌 프로그램 자체를 아예 종료)
     else:   #아니라면
         DFS(L+1, sum+a[L])
@@ -25,5 +27,5 @@ if __name__=="__main__":
     n=int(input())
     a=list(map(int, input().split()))
     total=sum(a)
-    DFS(0, 0)
+    print(DFS(0, 0))
     print("NO") #프로그램 종료 안되고 여기로 오면 NO 출력
