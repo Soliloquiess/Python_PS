@@ -1,5 +1,5 @@
 import sys
-sys.stdin=open("input.txt", "r")
+# sys.stdin=open("input.txt", "r")
 def DFS(L, sum, time):
     global res
     if time>m:  #시간이 m이라는 제한시간 넘어가면 안됨. 넘어가면 바로 리턴
@@ -18,7 +18,7 @@ def DFS(L, sum, time):
 
 
         DFS(L+1, sum, time) #현재 문제 안푸는거 그냥 지나치고 다음문제 품.
-
+    return res;
 if __name__=="__main__":
     n, m=map(int, input().split())
     #n은 문제개수 m은 제한시간
@@ -29,5 +29,5 @@ if __name__=="__main__":
         pv.append(a)
         pt.append(b)
     res=-2147000000#답이 될 거 최대값이니까  -정수 최소값 넣어줌.
-    DFS(0, 0, 0)    #0번이 첫번쨰 문제 1번이 두번째문제
+    print(DFS(0, 0, 0))    #0번이 첫번쨰 문제 1번이 두번째문제
     print(res)
