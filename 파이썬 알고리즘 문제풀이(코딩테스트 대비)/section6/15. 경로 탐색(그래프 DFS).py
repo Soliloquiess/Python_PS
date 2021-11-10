@@ -1,12 +1,14 @@
 import sys
 #sys.stdin = open("input.txt", "r")
 
+ans = [];
 def DFS(v):
     global cnt, path
     if v == n:  #n에 오면 종착지점에 옴
         cnt += 1
         for x in path:
             print(x, end=' ')
+            ans.append(x);
         print()
     else:    #for문으로 가지 뻗어야
         for i in range(1, n + 1):   #0번부터 도는게 아니라 1번부터 돌아야(n가지 가지 뻗음)
@@ -17,7 +19,7 @@ def DFS(v):
                 DFS(i)      #v에서 i로 이동하니까 i는 현재 노드가 됨.
                 path.pop()  #뒤로 백 했을떈 pop 해줘야됨!
                 ch[i] = 0   #호출한걸 뒤로 빽하는거라 체크 0으로 풀어줌.(이거 꼭 해야됨)
-
+    return ans;
 
 if __name__ == "__main__":
     n, m = map(int, input().split())
@@ -32,5 +34,5 @@ if __name__ == "__main__":
     # path = [] 이렇게 해도 동일한 리스트 생성하는 법
 
     path.append(1)      #1번에서 출발하니까 이건 무조건 넣어줘야(리스트 처음은 무조건 1 들감.
-    DFS(1)
+    print(DFS(1))
     print(cnt)
