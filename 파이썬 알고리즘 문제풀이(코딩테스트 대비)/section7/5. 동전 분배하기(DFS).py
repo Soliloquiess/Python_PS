@@ -18,6 +18,7 @@ def DFS(L):
             DFS(L+1)        #다음 동전으로 감
             money[i]-=coin[L]   #여기로 왔다는건 전 상황으로 온거(전에 했던거 취소)
             #money[i]+=coin[L] 여기서 더했던 걸 뺴주는거( 전으로 돌아왔으므로)
+    return res;
 
 if __name__=="__main__":
     n=int(input())  #동전 개수
@@ -27,5 +28,5 @@ if __name__=="__main__":
     res=2147000000  #res가 출력할 답
     for _ in range(n):  #포문 돌면서 코인이라는 리스트에 추가
         coin.append(int(input()))
-    DFS(0)
+    print(DFS(0))
     print(res)

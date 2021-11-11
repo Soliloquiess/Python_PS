@@ -18,7 +18,7 @@ def DFS(L, P):
                 #code[L+1]==i%10 이게 1의 자리 숫자와 같은지 보는거
                 res[P]=i    #res에 p라는 지점에 두자리 숫자인 i 넣는거
                 DFS(L+2, P+1)   #DFS 넘어감. L+2(두자리 수이므로), p는 인덱스니까 +1
-
+    return cnt;
 if __name__=="__main__":
     code=list(map(int, input()))#리스트로 받아서 끊어 받음 2 5 1 1 4
     n=len(code)                 #n이 종착점
@@ -27,7 +27,7 @@ if __name__=="__main__":
     #code[L+1]==i%10: 여기서 L+1부분이 인덱스 에러가 나므로 -1을 넣어서
     res=[0]*(n+3)
     cnt=0
-    DFS(0, 0)
+    print(DFS(0, 0))
     print(cnt)
 
 #알파코드 문제를 예시로 들었을 때, res=[]으로 하면 오류가 나더군요.
