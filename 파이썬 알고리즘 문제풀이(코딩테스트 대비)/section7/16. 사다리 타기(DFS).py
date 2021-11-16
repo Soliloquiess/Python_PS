@@ -1,16 +1,14 @@
 import sys
-sys.stdin=open("input.txt", "r")
-
-
+#sys.stdin=open("input.txt", "r")
 def DFS(x, y):  #x행, y열 번호
 
     ch[x][y]=1  #방문했다라고 1로 체크
     if x==0:    #0이 되면 맨 위의 행으로 온거
-        print(y)    #y는 열번호
+        print(y)    #y는 열번호. 열번호를 그대로 출력
 
     #만약 맨 위가 아니면 위로 계속 타고 올라가야 한다.
     else:       #왼쪽과 오른쪽으로 보는거
-        if y-1>=0 and board[x][y-1]==1 and ch[x][y-1]==0:
+        if y-1>=0 and board[x][y-1]==1 and ch[x][y-1]==0:   #이건 왼쪽으로 간다 가정
 
             #y - 1: 이 부분은 0보다 커야(y의 왼쪽지점)
             #board[x][y-1]==1 : 여기도 열번호의 왼쪽지점 1이면 갈수 있음.
@@ -19,7 +17,7 @@ def DFS(x, y):  #x행, y열 번호
 
             DFS(x, y-1) #이게 왼쪽으로 이동
 
-        elif y+1<10 and board[x][y+1]==1 and ch[x][y+1]==0:
+        elif y+1<10 and board[x][y+1]==1 and ch[x][y+1]==0: #이건 오른쪽으로 간다 가정
 
             #y+1<10 이 부분은 10보다 작아야(y의 오른쪽지점)
             #[x][y+1] 여기도 열번호의 오른쪽지점 1이면 갈수 있음.

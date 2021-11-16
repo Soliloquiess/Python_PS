@@ -19,6 +19,7 @@ def DFS(x, y, h):
         yy = y + dy[i]
 
         if 0 <= xx < n and 0 <= yy < n and ch[xx][yy] == 0 and board[xx][yy] > h:
+            #이게 퍼져나갈 조건
             #경계선 밖으로 나가면 안됨.
             # ch[xx][yy] == 0: 방문 안함(그래야 갈 수 있으므로)
             #board[xx][yy] > h: (가려는 지점이 물에 안잠겨야 퍼저나감)
@@ -48,7 +49,7 @@ if __name__ == "__main__":
 
 
                     cnt += 1
-                    DFS(i, j, h)#DFS로 좌표 넘기고 4방탐색
+                    DFS(i, j, h)#DFS로 좌표 넘기고 4방탐색, h보다 큰 4방향일때만 퍼져나가야됨.
 
         res = max(res, cnt) #기존 res보다 cnt가 크면 res가 바뀜(최대값 찾는거)
 
