@@ -8,21 +8,28 @@ import sys
 #오른쪽이 입력으로 주어진거. 여기서 최대부분증가수열 구함. 그리고 그 길이 출력
 #앞 문제와 정확히 일치. 그대로 최대부분증가수열 구하고 그 길이 출력하면 됨.
 
+#왼쪽에서 증가하는 수열이면 오른쪽에서도 증가하는 수열이여야한다.
+
+#일단 선을 다 연결해두고 교차하는 선을 지우는 방법으로도 가능하다.
+
 n=int(input())
 arr=list(map(int, input().split()))
 arr.insert(0,0)
-dy=[0]*(n+1)
-dy[1]=1
-res=0
+def solution(n,arr):
+    dy=[0]*(n+1)
+    dy[1]=1
+    res=0
 
-for i in range(2, n+1):
-    max=0
-    for j in range(i-1, 0, -1):
-        if arr[j]<arr[i] and dy[j]>max:
-            max=dy[j]
+    for i in range(2, n+1):
+        max=0
+        for j in range(i-1, 0, -1):
+            if arr[j]<arr[i] and dy[j]>max:
+                max=dy[j]
 
-    dy[i]=max+1
-    if dy[i]>res:
-        res=dy[i]
+        dy[i]=max+1
+        if dy[i]>res:
+            res=dy[i]
 
-print(res)
+    print(res)
+    return res;
+print(solution(n,arr));

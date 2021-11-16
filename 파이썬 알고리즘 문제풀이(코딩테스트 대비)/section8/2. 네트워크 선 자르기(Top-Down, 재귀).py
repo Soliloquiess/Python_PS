@@ -17,6 +17,7 @@ def DFS(len):
 
     else:               #전 문제에서 했던거 그대로.
         dy[len] = DFS(len - 1) + DFS(len - 2)
+        #DFS(7)이라 치면 DFS(6) + DFS(5)
         return dy[len]
 
 

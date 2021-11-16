@@ -1,7 +1,7 @@
-
+n = int(input());
 def solution(n):
     answer = 0;
-    dy = []
+    dy = [0] *31
 
 
     dy[1] = 1;
@@ -14,4 +14,4 @@ def solution(n):
     return answer;
 
 
-print(solution(7))
+print(solution(n))
