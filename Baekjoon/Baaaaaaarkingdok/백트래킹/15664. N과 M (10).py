@@ -1,29 +1,53 @@
-import sys
+# N, M = map(int, input().split())
+# L = list(map(int, input().split()))
+#
+# L.sort()
+# visited = [False] * N
+# out = []
+#
+# def solve(depth, idx, N, M):
+#     if depth == M:
+#         print(' '.join(map(str, out)))
+#         return
+#     overlap = 0
+#     for i in range(idx, N):
+#         if not visited[i] and overlap != L[i]:
+#             out.append(L[i])
+#             visited[i] = True
+#             overlap = L[i]
+#             solve(depth+1, i+1, N, M)
+#             out.pop()
+#             visited[i] = False
+#
+# solve(0, 0, N, M)
 
-N, M = map(int, sys.stdin.readline().split())
-N_list = list(map(int, sys.stdin.readline().split()))
-N_list.sort()
-check = [0 for _ in range(N)]
-answer = []
-
-
-def NandM10(index, start, N, M):
-    if index == M:
-        print(' '.join(map(str, answer)))
-        return
-
-    dup = 0
-    for i in range(start, N):
-        if not check[i] and dup != N_list[i]:
-            answer.append(N_list[i])
-            check[i] = 1
-            dup = N_list[i]
-            NandM10(index + 1, i, N, M)
-            answer.pop()
-            check[i] = 0
-
-
-NandM10(0, 0, N, M)
+#https://wlstyql.tistory.com/68?category=852442
+# import sys
+#
+# N, M = map(int, sys.stdin.readline().split())
+# N_list = list(map(int, sys.stdin.readline().split()))
+# N_list.sort()
+# check = [0 for _ in range(N)]
+# answer = []
+#
+#
+# def NandM10(index, start, N, M):
+#     if index == M:
+#         print(' '.join(map(str, answer)))
+#         return
+#
+#     dup = 0
+#     for i in range(start, N):
+#         if not check[i] and dup != N_list[i]:
+#             answer.append(N_list[i])
+#             check[i] = 1
+#             dup = N_list[i]
+#             NandM10(index + 1, i, N, M)
+#             answer.pop()
+#             check[i] = 0
+#
+#
+# NandM10(0, 0, N, M)
 
 #https://black-hair.tistory.com/61?category=849209
 
