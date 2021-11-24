@@ -1,0 +1,29 @@
+SET @va = 0; SELECT a.order_date, a.sum_amount,
+(@va := @va + a.sum_amount) as cumsum_amount
+FROM ( SELECT date_format(order_time, '%Y-%m')
+order_date, sum(order_amount) sum_amount
+FROM Test_table GROUP BY order_date ORDER BY order_date ) a;
+
+출처: https://codingspooning.tistory.com/110 [코딩하는 금융인]
+
+select date_format(PAY_DATE,'%Y-m-%d') AS PAY_DATE,AMOUNT
+from payments
+
+group by PAY_DATE
+order by PAT_DATE
+
+
+1번 문제
+
+select *
+from card_usages
+where amount>=50000
+order by id
+
+
+2번 문제
+
+select date_format(PAY_DATE,'%Y-%m-%d') as paydate,sum(Amount), DATE(PAY_DATE) as a
+from payments
+group by a
+order by a
