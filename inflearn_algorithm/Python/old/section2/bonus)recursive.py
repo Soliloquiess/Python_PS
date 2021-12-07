@@ -10,12 +10,11 @@ def solution(n):
                solution(n-2) + \
                solution(n-3)
 
-# t = int(input())
-# for _ in range(t):
-#     print(solution(int(input())))
-# 이 3줄은 왜 적혀있는지 모르겠다.
+t = int(input())
+for _ in range(t):
+    print(solution(int(input())))
 
-print(solution(5));
+# print(solution(5));
 
 
 ##########
