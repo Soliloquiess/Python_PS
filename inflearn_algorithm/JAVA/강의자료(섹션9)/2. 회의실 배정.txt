@@ -1,0 +1,42 @@
+import java.util.*;
+class Time implements Comparable<Time>{
+    public int s, e;
+    Time(int s, int e) {
+        this.s = s;
+        this.e = e;
+    }
+    @Override
+    public int compareTo(Time o){
+        if(this.e==o.e) return this.s-o.s;	//끝나는 시간이 같으면 시작시간에 의해 오름차순(this에서 넘어온 변수가 이렇게 하면 음수가 됨
+		else return this.e-o.e;	//아니면  끝나는 시간으로 정렬
+    }
+}
+
+class Main {
+	public int solution(ArrayList<Time> arr, int n){
+		int cnt=0;	//회의가 먼저 시작하는거 부터가 아니라 빨리 끝나는거 부터 해야한다.
+		Collections.sort(arr);
+		int et=0;
+		for(Time ob : arr){	//첫번째 회의부터 정렬이 된 상황 ob로 접근) ob(현재 진행하는 회의의 s 스타트 시간이가) 에 스타트 시간이 endtime보다 크거나 같으면
+			if(ob.s>=et){
+				cnt++;
+				et=ob.e;	//end타임을 바꿔준다.
+			}
+		}
+		return cnt;
+	}
+	//끝나는 시간이 같으면? 시작시간도 고려해야한다(시작시간에 의한 오름차순 정렬도 해야한다.)
+	//끝나는 시간에 의해서만이 아니라 끝나는시간에 오름차순 하되 끝나는 시간이 같으면 시작시간에 의해 오름차순 해야한다.
+	public static void main(String[] args){
+		Main T = new Main();
+		Scanner kb = new Scanner(System.in);
+		int n=kb.nextInt();
+		ArrayList<Time> arr = new ArrayList<>();
+		for(int i=0; i<n; i++){
+			int x=kb.nextInt();
+			int y=kb.nextInt();
+			arr.add(new Time(x, y));
+		}
+		System.out.println(T.solution(arr, n));
+	}
+}

@@ -6,13 +6,15 @@ class Main {
 		for(char x : s.toCharArray()){
 			map.put(x, map.getOrDefault(x, 0)+1); 
 		}
-		//System.out.println(map.containsKey('F'));
-		//System.out.println(map.size());
-		//System.out.println(map.remove('C'));
+		//System.out.println(map.containsKey('F'));	//containsKey는 해당 키가 존재하느냐
+		//System.out.println(map.size());	//size는 모든 키의 개수를 알려준다 해당 문제에선 5 나옴
+		//System.out.println(map.remove('C'));	//해당 키 삭제. 앞으로 문제 풀이에 매우 중요
 		
 		int max=Integer.MIN_VALUE;
-		for(char key : map.keySet()){
+		for(char key : map.keySet()){	//존재하는 키를 다 탐색(map객체 탐색), keySet은 존재하는 키 다 탐색
 			//System.out.println(key+" "+map.get(key));
+			//x가 키가 됨.
+			//맵 탐색은 keySet이 매우 중요하다
 			if(map.get(key)>max){
 				max=map.get(key);
 				answer=key;
@@ -20,7 +22,6 @@ class Main {
 		}
 		return answer;
 	}
-
 	public static void main(String[] args){
 		Main T = new Main();
 		Scanner sc = new Scanner(System.in);

@@ -3,7 +3,7 @@ class Main{
 	static int[] combi;
 	static int n, m;
 	public void DFS(int L, int s){
-		if(L==m){
+		if(L==m){	//사실 이정도는 그냥 외워버리는게 낫다.
 			for(int x : combi) System.out.print(x+" ");
 			System.out.println();
 		}

@@ -9,7 +9,7 @@ class _4_모든아나그램찾기 {
 		for(char x : b.toCharArray()) bm.put(x, bm.getOrDefault(x, 0)+1);
 		//있으면 키값 가져오고(x)아니면 0 가져와라
 		int L=b.length()-1;
-		for(int i=0; i<L; i++) am.put(a.charAt(i), am.getOrDefault(a.charAt(i), 0)+1);
+		for(int i=0; i<L; i++) am.put(a.charAt(i), am.getOrDefault(a.charAt(i), 0)+1);	//이게 키값. 있으면 그 값 가져오고 없으면 0 가져와라 그리고 1 더해서 새롭게 값을 수정한다.
 		int lt=0;
 		for(int rt=L; rt<a.length(); rt++){
 			am.put(a.charAt(rt), am.getOrDefault(a.charAt(rt), 0)+1);
