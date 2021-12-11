@@ -3,7 +3,7 @@ class Main {
 	public int count(int[] arr, int capacity){
 		int cnt=1, sum=0;
 		for(int x : arr){
-			if(sum+x>capacity){
+			if(sum+x>capacity){	//sum은 현재 노래가 차지하는 용량들 합ㄴ
 				cnt++;
 				sum=x;
 			}
@@ -14,7 +14,7 @@ class Main {
 
 	public int solution(int n, int m, int[] arr){
 		int answer=0;
-		int lt=Arrays.stream(arr).max().getAsInt();
+		int lt=Arrays.stream(arr).max().getAsInt();	//getAsInt는 기본형 int로 바꿔준다.
 		int rt=Arrays.stream(arr).sum();
 		while(lt<=rt){
 			int mid=(lt+rt)/2;
