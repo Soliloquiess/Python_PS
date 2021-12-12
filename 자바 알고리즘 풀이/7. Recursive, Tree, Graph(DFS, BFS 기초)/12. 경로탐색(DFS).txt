@@ -8,6 +8,7 @@ class Main {
 		else{
 			for(int i=1; i<=n; i++){
 				if(graph[v][i]==1 && ch[i]==0){
+				//현재 정점v에서 i번 갈수 있으면 1 그리고 방문 안했어야 한다.
 					ch[i]=1;
 					DFS(i);
 					ch[i]=0;
@@ -19,9 +20,9 @@ class Main {
 	public static void main(String[] args){
 		Main T = new Main();
 		Scanner kb = new Scanner(System.in);
-		n=kb.nextInt();
-		m=kb.nextInt();
-		graph=new int[n+1][n+1];
+		n=kb.nextInt();	//노드의 개수
+		m=kb.nextInt();	//간선의 개수
+		graph=new int[n+1][n+1];	//+1 둘다 해줘야
 		ch=new int[n+1];
 		for(int i=0; i<m; i++){
 			int a=kb.nextInt();

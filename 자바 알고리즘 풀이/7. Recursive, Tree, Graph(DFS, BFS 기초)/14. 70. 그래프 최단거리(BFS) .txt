@@ -9,12 +9,12 @@ class Main {
 		Queue<Integer> queue=new LinkedList<>();
 		queue.offer(v);
 		while(!queue.isEmpty()){
-			int cv=queue.poll();
-			for(int nv : graph.get(cv)){
-				if(ch[nv]==0){
+			int cv=queue.poll();//큐에서 하나 꺼냄(현재 정점(current vertex)
+			for(int nv : graph.get(cv)){	//이 리스트 탐색(cv)
+				if(ch[nv]==0){	//인접리스트는 방문 했냐 안했냐만 보면 된다.
 					ch[nv]=1;
 					queue.offer(nv);
-					dis[nv]=dis[cv]+1;
+					dis[nv]=dis[cv]+1;	//이걸 꼭 해야된다. nv는 cv에서 왔다 그리고 1을 더해준다.
 				}
 			}
 		}
@@ -36,7 +36,7 @@ class Main {
 			int b=kb.nextInt();
 			graph.get(a).add(b);
 		}
-		T.BFS(1);
+		T.BFS(1);	//넓이우선탐색 1번부터 돌아라
 		for(int i=2; i<=n; i++){
 			System.out.println(i+" : "+dis[i]);
 		}
