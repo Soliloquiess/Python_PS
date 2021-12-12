@@ -3,7 +3,7 @@ class Main{
 	static int answer=Integer.MIN_VALUE, c, n;
 	public void DFS(int L, int sum, int[] arr){
 		if(sum>c) return;
-		if(L==n){
+		if(L==n){	//sum은 c보다 작거나 같은 부분집합이 완성됨.
 			answer=Math.max(answer, sum);
 		}
 		else{

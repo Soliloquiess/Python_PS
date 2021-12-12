@@ -3,9 +3,9 @@ class Main{
 	static int answer=Integer.MIN_VALUE, n, m;
 	boolean flag=false;
 	public void DFS(int L, int sum, int time, int[] ps, int[] pt){
-		if(time>m) return;
+		if(time>m) return;	//time이 m을 넘어가면 바로 끝내버려라.
 		if(L==n){
-			answer=Math.max(answer, sum);
+			answer=Math.max(answer, sum);	//기존 answer보다 sum이 크면 바꿔줘라
 		}
 		else{
 			DFS(L+1, sum+ps[L], time+pt[L], ps, pt);
@@ -24,7 +24,7 @@ class Main{
 			a[i]=kb.nextInt();
 			b[i]=kb.nextInt();
 		}
-		T.DFS(0, 0, 0, a, b);
+		T.DFS(0, 0, 0, a, b);	//
 		System.out.println(answer);
 	}
 }

@@ -3,17 +3,17 @@ class Main{
 	static int[] pm, ch, arr;
 	static int n, m;
 	public void DFS(int L){
-		if(L==m){
+		if(L==m){	//순열이 하나 완성
 			for(int x : pm) System.out.print(x+" ");
 			System.out.println();
 		}
-		else{
+		else{	//아니면 가지치기 들어가야한다.
 			for(int i=0; i<n; i++){
-				if(ch[i]==0){
+				if(ch[i]==0){	//i에 있는 숫자가 쓰이지 않았을 때 가지를 뻗어야 한다.
 					ch[i]=1;
 					pm[L]=arr[i];
 					DFS(L+1);
-					ch[i]=0;
+					ch[i]=0;	//백할떄는 풀어줘야한다
 				}
 			}
 		}

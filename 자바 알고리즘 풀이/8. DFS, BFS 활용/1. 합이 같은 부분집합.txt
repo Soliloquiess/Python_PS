@@ -6,7 +6,7 @@ class Main{
 	public void DFS(int L, int sum, int[] arr){
 		if(flag) return;
 		if(sum>total/2) return;
-		if(L==n){
+		if(L==n){	
 			if((total-sum)==sum){
 				answer="YES";
 				flag=true;
@@ -14,7 +14,7 @@ class Main{
 		}
 		else{
 			DFS(L+1, sum+arr[L], arr);
-			DFS(L+1, sum, arr);
+			DFS(L+1, sum, arr);	//arr[L]을 부분집합에 쓰지 않겠다
 		}
 	}
 	public static void main(String[] args){
