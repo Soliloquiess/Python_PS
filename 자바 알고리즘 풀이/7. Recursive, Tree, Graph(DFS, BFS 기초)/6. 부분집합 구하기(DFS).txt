@@ -12,9 +12,9 @@ class Main {
 		}
 		else{
 			ch[L]=1;
-			DFS(L+1);
+			DFS(L+1);	//왼쪽으로 뻗는거
 			ch[L]=0;
-			DFS(L+1);
+			DFS(L+1);	//오른쪽으로 뻗는거
 		}
 	}
 

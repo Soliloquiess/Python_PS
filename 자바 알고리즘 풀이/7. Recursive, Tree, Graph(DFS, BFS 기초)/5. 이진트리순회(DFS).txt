@@ -27,8 +27,8 @@ public class Main{
         tree.root.rt=new Node(3); 
         tree.root.lt.lt=new Node(4); 
         tree.root.lt.rt=new Node(5); 
-		tree.root.rt.lt=new Node(6); 
+        tree.root.rt.lt=new Node(6); 
         tree.root.rt.rt=new Node(7);
-        tree.DFS(tree.root); 
+        tree.DFS(tree.root); //이 tree.root 가 1번루트(맨 위의 상단 노드)
     } 
 } 
