@@ -12,6 +12,7 @@ class Main {
 				int nx=x+dx[i];
 				int ny=y+dy[i];
 				if(nx>=1 && nx<=7 && ny>=1 && ny<=7 && board[nx][ny]==0){
+				//경계선 안
 					board[nx][ny]=1;
 					DFS(nx, ny);
 					board[nx][ny]=0;
@@ -29,7 +30,7 @@ class Main {
 				board[i][j]=kb.nextInt();
 			}
 		}
-		board[1][1]=1;
+		board[1][1]=1;	//출발점 체크 검
 		T.DFS(1, 1);
 		System.out.print(answer);
 	}

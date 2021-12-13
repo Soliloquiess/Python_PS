@@ -17,8 +17,8 @@ class Main {
 		int cnt=0;
 		Collections.sort(arr);
 		int et=0;
-		for(Time ob : arr){
-			if(ob.s>=et){
+		for(Time ob : arr){	//ob가 회의. 
+			if(ob.s>=et){	//회의 시작시간이 entime보다 크거나 같으면 할수 있다.
 				cnt++;
 				et=ob.e;
 			}

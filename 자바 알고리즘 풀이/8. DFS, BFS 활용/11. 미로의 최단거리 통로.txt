@@ -11,8 +11,8 @@ class Main {
 	static int[] dy={0, 1, 0, -1};
 	static int[][] board, dis;
 	public void BFS(int x, int y){
-		Queue<Point> Q=new LinkedList<>();
-		Q.offer(new Point(x, y));
+		Queue<Point> Q=new LinkedList<>();	//포인터를 저장할 수 있는 클래스
+		Q.offer(new Point(x, y));	//객체 좌표가 들어감,x,y
 		board[x][y]=1;
 		while(!Q.isEmpty()){
 			Point tmp=Q.poll();

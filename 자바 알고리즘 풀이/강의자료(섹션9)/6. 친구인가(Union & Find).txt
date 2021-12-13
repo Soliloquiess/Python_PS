@@ -1,8 +1,10 @@
 import java.util.*;
+
+//서로소 집합 만들 때 유니온 파인드 사용.
 class Main {
 	static int[] unf;
-	public static int Find(int v){
-		if(v==unf[v]) return v;
+	public static int Find(int v){	//find는 매개변수 v의 집합변수를 리턴해야 한다.
+		if(v==unf[v]) return v;	//unf[v] 이게 집합 번호라 얘를 리턴해줘야한다.
 		else return unf[v]=Find(unf[v]);
 	}
 	public static void Union(int a, int b){

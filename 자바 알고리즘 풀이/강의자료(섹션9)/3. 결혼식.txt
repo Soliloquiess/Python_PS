@@ -8,7 +8,7 @@ class Time implements Comparable<Time>{
     }
     @Override
     public int compareTo(Time ob){
-        if(this.time==ob.time) return this.state-ob.state;
+        if(this.time==ob.time) return this.state-ob.state;	//시간이 같으면 알파벳에서 정렬해라(시간이 같지 않으면 시간에 의해 정렬하고)
 		else return this.time-ob.time;
     }
 }
@@ -17,11 +17,11 @@ class Main {
 	public int solution(ArrayList<Time> arr){
 		int answer=Integer.MIN_VALUE;
 		Collections.sort(arr);
-		int cnt=0;
-		for(Time ob : arr){
-			if(ob.state=='s') cnt++;
-			else cnt--;
-			answer=Math.max(answer, cnt);
+		int cnt=0;	//이 순간에 몇명이 존재하는지
+		for(Time ob : arr){	//compare 기준에서 정렬함
+			if(ob.state=='s') cnt++;	//ob가 s라면 cnt더한다. 
+			else cnt--;	//아니면 감소
+			answer=Math.max(answer, cnt);	//
 		}
 		return answer;
 	}

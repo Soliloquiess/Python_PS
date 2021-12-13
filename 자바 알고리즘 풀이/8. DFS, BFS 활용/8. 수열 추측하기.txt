@@ -23,7 +23,7 @@ class Main{
 				if(ch[i]==0){
 					ch[i]=1;
 					p[L]=i;
-					DFS(L+1, sum+(p[L]*b[L]));
+					DFS(L+1, sum+(p[L]*b[L]));	//레벨증가하면서 P[L]* b[L]
 					ch[i]=0;
 				}
 			}

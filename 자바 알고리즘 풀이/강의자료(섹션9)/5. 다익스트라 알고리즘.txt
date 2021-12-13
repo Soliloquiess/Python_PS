@@ -7,7 +7,7 @@ class Edge implements Comparable<Edge>{
         this.cost = cost;
     }
     @Override
-    public int compareTo(Edge ob){
+    public int compareTo(Edge ob){	//꺼내지는 기준은 코스트 기준이 가장 작은거
         return this.cost-ob.cost;
     }
 }
@@ -18,14 +18,14 @@ class Main {
 	static int[] dis;
 	public void solution(int v){
 		PriorityQueue<Edge> pQ = new PriorityQueue<>();
-		pQ.offer(new Edge(v, 0));
+		pQ.offer(new Edge(v, 0));	
 		dis[v]=0;
 		while(!pQ.isEmpty()){
 			Edge tmp=pQ.poll();
 			int now=tmp.vex;
 			int nowCost=tmp.cost;
 			if(nowCost>dis[now]) continue;
-			for(Edge ob : graph.get(now)){
+			for(Edge ob : graph.get(now)){	//now와 연결된 간선 정보가 다 들어가게 됨.
 				if(dis[ob.vex]>nowCost+ob.cost){
 					dis[ob.vex]=nowCost+ob.cost;
 					pQ.offer(new Edge(ob.vex, nowCost+ob.cost));
@@ -39,7 +39,7 @@ class Main {
 		Scanner kb = new Scanner(System.in);
 		n=kb.nextInt();
 		m=kb.nextInt();
-		graph = new ArrayList<ArrayList<Edge>>();
+		graph = new ArrayList<ArrayList<Edge>>();	//edge라는 클래스의 객체를 저장할 수 있는 어레이리스트 객체
 		for(int i=0; i<=n; i++){
 			graph.add(new ArrayList<Edge>());
 		}

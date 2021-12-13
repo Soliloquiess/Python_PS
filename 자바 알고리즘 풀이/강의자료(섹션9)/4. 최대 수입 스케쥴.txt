@@ -17,12 +17,16 @@ class Main {
 	public int solution(ArrayList<Lecture> arr){
 		int answer=0;
 		PriorityQueue<Integer> pQ = new PriorityQueue<>(Collections.reverseOrder());
+		//정수값 들어가면 제일 작은값을 우선순위로 꺼내준다. 반대로 Collections.reverseOrder() 넣으면 큰값을 우선순위로 꺼내준다.
 		Collections.sort(arr);
 		int j=0;
 		for(int i=max; i>=1; i--){
 			for(; j<n; j++){
-				if(arr.get(j).time<i) break;
-				pQ.offer(arr.get(j).money);
+				if(arr.get(j).time<i) break;	
+	//정렬되어 있을것. j로				
+	//j로 접근 이 시간이 i날짜보다 작으면 j를 브레이크
+	//그렇지 않으면 이 날짜가 i보다 크거나 같다. pQ에 넣어준다.arr에 j순서에 있는 그 강연료를 pQ에 넣어준다.
+				pQ.offer(arr.get(j).money);	//그렇지 않으면 pq에 넣어준다.
 			}
 			if(!pQ.isEmpty()) answer+=pQ.poll();
 		}

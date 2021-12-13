@@ -8,7 +8,7 @@ class Edge implements Comparable<Edge>{
     }
     @Override
     public int compareTo(Edge ob){
-        return this.cost-ob.cost;
+        return this.cost-ob.cost;	//오름차순
     }
 }
 class Main {
@@ -25,20 +25,21 @@ class Main {
 			int a=kb.nextInt();
 			int b=kb.nextInt();
 			int c=kb.nextInt();
-			graph.get(a).add(new Edge(b, c));
+			graph.get(a).add(new Edge(b, c));//a라는 정점에서 b로 가는데 비용이 c다.
 			graph.get(b).add(new Edge(a, c));
 		}
 		int answer=0;
-		PriorityQueue<Edge> pQ = new PriorityQueue<>();
-		pQ.offer(new Edge(1, 0));
+		PriorityQueue<Edge> pQ = new PriorityQueue<>();	//비용에 의해서 최소값 해줌
+		pQ.offer(new Edge(1, 0));	//1번 정점으로 가는데 비용이 0이다.
 		while(!pQ.isEmpty()){
 			Edge tmp=pQ.poll();
-			int ev=tmp.vex;
-			if(ch[ev]==0){
+			int ev=tmp.vex;	//tmp.vex가 도착하는데 정점
+			if(ch[ev]==0){	//체크가 안되있어야만 answer에 그  회로가 되는 걸 방지한다.
 				ch[ev]=1;
-				answer+=tmp.cost;
-				for(Edge ob : graph.get(ev)){
+				answer+=tmp.cost;	/tmp.cost;는 간선의 비용
+				for(Edge ob : graph.get(ev)){	//ev와 연결된 간선들을 정점번호가 ob.vex인데 체크가 0이면 이미 1에서 2로 오는걸 넣지말고 그렇지 않은 간선을 넣어라
 					if(ch[ob.vex]==0) pQ.offer(new Edge(ob.vex, ob.cost));
+					//if(ch[ob.vex]==0)는 이미 선택된 간선은 하지 않겠다는 뜻
 				}
 			}
 		}

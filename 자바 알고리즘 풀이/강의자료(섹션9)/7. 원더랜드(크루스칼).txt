@@ -1,7 +1,7 @@
 import java.util.*;
-class Edge implements Comparable<Edge>{
-    public int v1;
-	public int v2;
+class Edge implements Comparable<Edge>{	//edge라는 클래스 간선정보 만듬.
+    	public int v1;	//간선1
+	public int v2;	//간선2
 	public int cost;
     Edge(int v1, int v2, int cost) {
         this.v1 = v1;
@@ -9,7 +9,7 @@ class Edge implements Comparable<Edge>{
         this.cost = cost;
     }
     @Override
-    public int compareTo(Edge ob){
+    public int compareTo(Edge ob){	//간선 가중치 값이 작은거부터 오름차순으로 정렬
         return this.cost-ob.cost;
     }
 }
@@ -30,22 +30,24 @@ class Main {
 		int n=kb.nextInt();
 		int m=kb.nextInt();
 		unf=new int[n+1];
-		ArrayList<Edge> arr=new ArrayList<>();
+		ArrayList<Edge> arr=new ArrayList<>();	//edge객체 넣을 수 있는 어레이리스트 생성
 		for(int i=1; i<=n; i++) unf[i]=i;
 		for(int i=0; i<m; i++){
 			int a=kb.nextInt();
 			int b=kb.nextInt();
 			int c=kb.nextInt();
-			arr.add(new Edge(a, b, c));
+			arr.add(new Edge(a, b, c));	//a와 b정점 연결하는데 드는 비용은 c다
 		}
 		int answer=0;
 		Collections.sort(arr);
 		for(Edge ob : arr){
 			int fv1=Find(ob.v1);
 			int fv2=Find(ob.v2);
-			if(fv1!=fv2){
+			//두 정점을 넘겨본다.
+//두 정점이 같은 집합인지 살펴봄. .
+			if(fv1!=fv2){	//다르면 같은 집합으로 만들어줘야한다.
 				answer+=ob.cost;
-				Union(ob.v1, ob.v2);
+				Union(ob.v1, ob.v2);	//이 둘을 한집합으로 묶어버린다.
 			}
 		}
 		System.out.println(answer);
