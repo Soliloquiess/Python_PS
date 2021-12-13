@@ -8,7 +8,7 @@ class Main{
 		for(int i=0; i<n; i++){
 			int ps=kb.nextInt();
 			int pt=kb.nextInt();
-			for(int j=m; j>=pt; j--){
+			for(int j=m; j>=pt; j--){	//시간까지 도는거
 				dy[j]=Math.max(dy[j], dy[j-pt]+ps);
 			}
 		}

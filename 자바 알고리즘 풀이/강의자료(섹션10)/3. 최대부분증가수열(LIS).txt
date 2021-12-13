@@ -5,9 +5,11 @@ class Main{
 		int answer=0;
 		dy=new int[arr.length];
 		dy[0]=1;
-		for(int i=1; i<arr.length; i++){
+//숫자가 한개가 들어오면? 
+		answer = dy[0];	//숫자 한자리 들어올 때를 대비해서 dy[0]번째를 넣어줬다.오전 3:28 2021-12-14
+		for(int i=1; i<arr.length; i++){//숫자 한개 들어오면 0 리턴되서 문제 오류
 			int max=0;
-			for(int j=i-1; j>=0; j--){
+			for(int j=i-1; j>=0; j--){	//역순으로 돌면서 dy가 큰걸찾는다.
 				if(arr[j]<arr[i] && dy[j]>max) max=dy[j];
 			}
 			dy[i]=max+1;

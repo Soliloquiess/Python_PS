@@ -8,7 +8,7 @@ class Brick implements Comparable<Brick>{
     }
     @Override
     public int compareTo(Brick o){
-        return o.s-this.s;
+        return o.s-this.s;	//s에 의해 내림차순
     }
 }
 class Main{
@@ -16,16 +16,17 @@ class Main{
 	public int solution(ArrayList<Brick> arr){
 		int answer=0;
 		Collections.sort(arr);
-		dy[0]=arr.get(0).h;
-		answer=dy[0];
-		for(int i=1; i<arr.size(); i++){
+		dy[0]=arr.get(0).h;//제일 넓은 벽돌의 높이
+		answer=dy[0];	//0으로 두면 안됨 맨 앞에꺼
+		for(int i=1; i<arr.size(); i++){	
 			int max_h=0;
-			for(int j=i-1; j>=0; j--){
+			for(int j=i-1; j>=0; j--){	
 				if(arr.get(j).w > arr.get(i).w && dy[j]>max_h){
+				//i번쨰를 탑의 제일 위에 올려둔다.
 					max_h=dy[j];
 				}
 			}
-			dy[i]=max_h+arr.get(i).h;
+			dy[i]=max_h+arr.get(i).h;	//높이를 구하는 거니까 더해준다.
 			answer=Math.max(answer, dy[i]);
 		}
 		return answer;
@@ -35,7 +36,7 @@ class Main{
 		Main T = new Main();
 		Scanner kb = new Scanner(System.in);
 		int n=kb.nextInt();
-		ArrayList<Brick> arr=new ArrayList<>();
+		ArrayList<Brick> arr=new ArrayList<>();	//Brick저장하는 어레이 리스트 생성
 		dy=new int[n];
 		for(int i=0; i<n; i++){
 			int a=kb.nextInt();
