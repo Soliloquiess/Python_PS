@@ -33,6 +33,8 @@ def bfs(x, y):
             if graph[nx][ny] == 1:
                 graph[nx][ny] = graph[x][y] + 1 #바로직전 노드값에 1을 더한다.
                 queue.append((nx, ny))
+            if(nx==n-1 and ny==m-1):    #이거는 맨 오른쪽 아래 되자마자 리턴 바로 해버림(그럼 답 나오니까)
+                return graph[n-1][m-1];
     # 가장 오른쪽 아래까지의 최단 거리 반환
     return graph[n - 1][m - 1]
 
