@@ -15,6 +15,8 @@ def DFS(L):
 
 if __name__=="__main__":
     n, m=map(int, input().split())
+    #덤이지만 문자열 읽을 때는 rstrip()을 꼭 붙여주라 하신다. 그래야 \n이런 줄바꿈 무시하고 가능하다고
+    #s = input().rstrip() 이런식으로.
     res=[0]*n
     cnt=0
     DFS(0)
