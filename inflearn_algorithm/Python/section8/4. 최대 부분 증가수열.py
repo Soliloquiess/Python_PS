@@ -12,7 +12,7 @@ def solution(n,arr):
 
     for i in range(2, n+1): #맨 처음은 0,1로 되어있으므로 2부터 돌게한다.
         max=0
-        for j in range(i-1, 0, -1):  #맨 뒤에서 앞으로 역순으로돈다.
+        for j in range(i-1, 0, -1):  #맨 뒤에서 앞으로 역순으로돈다.(최대값 찾음)
             if arr[j]<arr[i] and dy[j]>max:
                 # arr[i]는 내가 만들고자 하는 증가수열의 마지막항
                 # arr[j] 에서 j는 그 마지막 항의 앞의 항을 찾는거 j항이 작아야 앞의 항이 됨.
@@ -24,4 +24,4 @@ def solution(n,arr):
             res=dy[i]   #다이나믹 테이블 중 가장 큰 값이 답임
     print(res)
     return res;
-print(solution(n,arr));s
+print(solution(n,arr));
