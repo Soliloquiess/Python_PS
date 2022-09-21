@@ -20,17 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e80c590e-e711-46cf-a324-6825b948e9a2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/LeetCode/1. Two Sum.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LeetCode/1342. Number of Steps to Reduce a Number to Zero.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LeetCode/1480.Running Sum of 1D Array.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LeetCode/1672.Richest Customer Wealth.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LeetCode/383. Ransom Note.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LeetCode/412.fizzbuzz.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LeetCode/876. Middle of the Linked List.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LeetCode/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/algorithm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/algorithm.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LeetCode/recursion_C09.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeetCode/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/LeetCode/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,7 +186,11 @@
       <workItem from="1662468653729" duration="230000" />
       <workItem from="1662468895631" duration="1918000" />
       <workItem from="1663325357723" duration="1233000" />
-      <workItem from="1663386163214" duration="23257000" />
+      <workItem from="1663386163214" duration="24486000" />
+      <workItem from="1663468531499" duration="3011000" />
+      <workItem from="1663500882682" duration="1495000" />
+      <workItem from="1663658544712" duration="5253000" />
+      <workItem from="1663717096881" duration="175000" />
     </task>
     <servers />
   </component>
@@ -245,14 +241,38 @@
           <line>107</line>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/LeetCode/main.py</url>
+          <line>3</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/LeetCode/main.py</url>
+          <line>1</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/LeetCode/main.py</url>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/LeetCode/main.py</url>
+          <line>2</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="arr[0]" language="Python" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Python_PS$1480_.coverage" NAME="1480. Coverage Results" MODIFIED="1663392691948" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/LeetCode" />
     <SUITE FILE_PATH="coverage/Python_PS$.coverage" NAME=" Coverage Results" MODIFIED="1663408296575" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/LeetCode" />
-    <SUITE FILE_PATH="coverage/Python_PS$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1663424893370" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/LeetCode" />
-    <SUITE FILE_PATH="coverage/Python_PS$876__Middle_of_the_Linked_List.coverage" NAME="876. Middle of the Linked List Coverage Results" MODIFIED="1663413388226" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/LeetCode" />
+    <SUITE FILE_PATH="coverage/Python_PS$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1663663649056" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/LeetCode" />
+    <SUITE FILE_PATH="coverage/Python_PS$876__Middle_of_the_Linked_List.coverage" NAME="876. Middle of the Linked List Coverage Results" MODIFIED="1663473204184" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/LeetCode" />
     <SUITE FILE_PATH="coverage/Python_PS$1672.coverage" NAME="1672 Coverage Results" MODIFIED="1663397035467" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/LeetCode" />
   </component>
 </project>
