@@ -20,9 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e80c590e-e711-46cf-a324-6825b948e9a2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/LeetCode/sortExercise.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeetCode/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/LeetCode/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +188,7 @@
       <workItem from="1663468531499" duration="3011000" />
       <workItem from="1663500882682" duration="1495000" />
       <workItem from="1663658544712" duration="5253000" />
-      <workItem from="1663717096881" duration="7750000" />
+      <workItem from="1663717096881" duration="8575000" />
     </task>
     <servers />
   </component>
