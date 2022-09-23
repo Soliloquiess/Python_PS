@@ -1,0 +1,13 @@
+﻿  bookLibrary_File.c
+  calc.c
+C:\Users\cyh12\source\repos\Project2\Project2\calc.h(1,1): warning C4828: 파일에 0xba 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 949).
+C:\Users\cyh12\source\repos\Project2\Project2\calcdata.h(1,1): warning C4828: 파일에 0x1ce 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 949).
+  main.c
+C:\Users\cyh12\source\repos\Project2\Project2\calc.h(1,1): warning C4828: 파일에 0xba 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 949).
+C:\Users\cyh12\source\repos\Project2\Project2\calcdata.h(1,1): warning C4828: 파일에 0x1ce 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 949).
+C:\Users\cyh12\source\repos\Project2\Project2\print.h(1,1): warning C4828: 파일에 0x90 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 949).
+  print.c
+C:\Users\cyh12\source\repos\Project2\Project2\print.h(1,1): warning C4828: 파일에 0x90 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 949).
+C:\Users\cyh12\source\repos\Project2\Project2\calcdata.h(1,1): warning C4828: 파일에 0x1ce 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 949).
+  코드를 생성하고 있습니다...
+  Project2.vcxproj -> C:\Users\cyh12\source\repos\Project2\x64\Debug\Project2.exe
