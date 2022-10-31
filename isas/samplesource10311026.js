@@ -386,3 +386,5 @@ function Execute(aInput) {
         return JSON.stringify(iSASObj);
     }
 }
+
+//예외처리 전 옷 추천까지는 출력
