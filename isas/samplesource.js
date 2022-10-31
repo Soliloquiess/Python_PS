@@ -86,20 +86,6 @@ function search(region){
 //////
 
 
-// // 오류처리 함수
-//         // this.setError(ErrorCode);
-//         // this.iSASInOut.Output.ErrorMessage = ""; (커스텀마이징)
-//         // return ErrorCode;
-        
-//         // 통신 (요청) // Request
-//         if (httpRequest.getWithUserAgent(this.userAgent, `https://weather.naver.com/today/${지역명}`)){
-//             // 오류처리
-//             this.setError(E_IBX_FAILTOGETPAGE);
-//             //this.iSASInOut.Output.ErrorMessage = "통신 실패";
-//             return E_IBX_FAILTOGETPAGE;
-//         }
-//         this.log("Main1: ["+ httpRequest.result +"]");
-
 // var currentWeather  = rainy(wetrTxt);
 
 var umbrella;
@@ -117,52 +103,52 @@ function rainy(currentWeather){
 }
 
 var clothesArr = [
-    ["민소매", "반팔", "짧은 치마", "린넨"], 
-    ["반팔", "얇은 셔츠", "반바지", "면바지"], 
-    ["블라우스", "긴팔 티", "면바지", "슬랙스"], 
-    ["얇은 가디건", "니트", "맨투맨", "후드", "긴바지"], 
+    ["민소매", "반팔", "짧은 치마", "린넨"],
+    ["반팔", "얇은 셔츠", "반바지", "면바지"],
+    ["블라우스", "긴팔 티", "면바지", "슬랙스"],
+    ["얇은 가디건", "니트", "맨투맨", "후드", "긴바지"],
     ["자켓", "가디건", "청자켓", "니트", "스타킹", "청바지"]
     ["트랜치 코트", "야상", "점퍼", "스타킹", "기모바지"],
     ["울 코트", "히트텍", "가죽 옷", "기모"],
     ["패딩", "두꺼운 코트", "누빔 옷", "기모", "목도리"]
-]; 
+];
 
-function clothesRecommand(clothesArr,avr_temp){
-    
-    // var _clothesArr = JSON.parse(JSON.stringify(clothesArr));
-    // console.log("clothesArr: ["+ JSON.stringify(clothesArr) +"]");
+var cloth= [];
+function clothesRecommand(clothesArr,aplTm){
 
-    var cloth= [];    
-    if (avr_temp >= 28){
+    var _clothesArr = JSON.parse(JSON.stringify(clothesArr));
+    console.log("clothesArr: ["+ JSON.stringify(clothesArr) +"]");
+
+    if (aplTm >= parseInt(28)){
         cloth.push(clothesArr[0]);
         return cloth;
     }
-    else if (avr_temp >= 27){
+    else if (aplTm >= 27){
         cloth.push(clothesArr[1]);
         return cloth;
     }
-    else if (avr_temp >= 20){
+    else if (aplTm >= 20){
         cloth.push(clothesArr[2]);
         return cloth;
     }
-    else if (avr_temp >= 17){
+    else if (aplTm >= 17){
         cloth.push(clothesArr[3]);
         return cloth;
     }
-    else if  (avr_temp >= 12){
+    else if  (aplTm >= 12){
         cloth = _clothesArr[4];
 
         return cloth[4];
     }
-    else if (avr_temp >= 6){
+    else if (aplTm >= 9){
         cloth.push(clothesArr[5]);
         return cloth;
     }
-    else if (avr_temp >= 4){
+    else if (aplTm >= 5){
         cloth.push(clothesArr[6]);
         return cloth;
     }
-    else if (avr_temp <= 3){
+    else if (aplTm <= 4){
         cloth.push(clothesArr[7]);
         return cloth;
     }
@@ -192,8 +178,8 @@ function clothesRecommand(clothesArr,avr_temp){
     // else if (avr_temp <= 4){
     //     cloth = clothesArr[7]
     // }
-    // console.log("TEST["+ avr_temp +"]:["+ cloth +"]");
-    // console.log("TEST["+ avr_temp +"]:["+ JSON.stringify(cloth) +"]");
+    console.log("TEST["+ avr_temp +"]:["+ cloth +"]");
+    console.log("TEST["+ avr_temp +"]:["+ JSON.stringify(cloth) +"]");
 
     //return cloth
 
@@ -209,7 +195,7 @@ var 날씨 = function(){
     this.userAgent += '"Accept":"image/webp,image/apngimage/*,*/*;q=0.8"';
     this.userAgent += '"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"';
     this.userAgent += '}';
-};  
+};
 
 날씨.prototype = Object.create(iSASObject.prototype);
 
@@ -253,39 +239,39 @@ var 날씨 = function(){
 
         // 3. 결과처리 (결과포맷)
         //var ResTem = StrGrab(ResultStr, '<div class="email MY_EMAIL">', '</div>');
-        
+
         // "regionName":"춘천"
 
         //aIndex = 1부터 시작
         // var clothesArr = [
-        //     ["민소매", "반팔", "짧은 치마", "린넨"], 
-        //     ["반팔", "얇은 셔츠", "반바지", "면바지"], 
-        //     ["블라우스", "긴팔 티", "면바지", "슬랙스"], 
-        //     ["얇은 가디건", "니트", "맨투맨", "후드", "긴바지"], 
+        //     ["민소매", "반팔", "짧은 치마", "린넨"],
+        //     ["반팔", "얇은 셔츠", "반바지", "면바지"],
+        //     ["블라우스", "긴팔 티", "면바지", "슬랙스"],
+        //     ["얇은 가디건", "니트", "맨투맨", "후드", "긴바지"],
         //     ["자켓", "가디건", "청자켓", "니트", "스타킹", "청바지"]
         //     ["트랜치 코트", "야상", "점퍼", "스타킹", "기모바지"],
         //     ["울 코트", "히트텍", "가죽 옷", "기모"],
         //     ["패딩", "두꺼운 코트", "누빔 옷", "기모", "목도리"]
-        // ]; 
+        // ];
 
 
         var 날씨정보조회 = [];
-        
-       
+
+
 
             var regionName = StrGrab(ResultStr, '"fullAreaName":"', '"');
             var mareaNm = StrGrab(ResultStr, '"mareaNm":"', '"');
             var today = StrGrab(ResultStr, '<strong class="day">오늘</strong><span class="date">', '</span>');
-           
+
             var ul_str  = StrGrab(ResultStr, 'class="box_color">', '</ul>');
             var li_tmr = StrGrab(ul_str, '<li', '</li>', 2);
            var tommorow_morning = StrGrab(li_tmr,'<span class="weather_text">', '</span>',1);
-           
+
            var tommorow_evening = StrGrab(li_tmr,'<span class="weather_text">', '</span>',2)
             // var 오전 =  StrGrab();
 
-            var wetrTxt = StrGrab(ResultStr, '<span class="weather">', '</span>');   
-            
+            var wetrTxt = StrGrab(ResultStr, '<span class="weather">', '</span>');
+
             var currentWeather  = rainy(wetrTxt);
 
 
@@ -300,17 +286,17 @@ var 날씨 = function(){
             // var rainfall = StrGrab(ResultStr, '<dl><dt class="blind">강수확률</dt><dd>', '</dd>');
 
             var rainfall_mor = StrGrab(ResultStr, '<span class="blind">강수확률</span>', '</span>',  1);
-            
+
             var rainfall_eve = StrGrab(ResultStr, '<span class="blind">강수확률</span>', '</span>',  2);
             var lowest = StrGrab(ResultStr, '<span class="lowest"><span class="blind">최저기온</span>', '</span>');
             var highest =  StrGrab(ResultStr, '<span class="highest"><span class="blind">최고기온</span>', '</span>');
             console.log("lowest:::" + lowest);
             console.log("highest:::" + highest);
 
-            var avr_temp = ((parseFloat(highest) + parseFloat(lowest))/2);
+            var avr_temp = parseFloat((parseFloat(highest) + parseFloat(lowest))/2);
             console.log("avr_temp:::" + avr_temp);
 
-             var todayclothes = clothesRecommand(clothesArr, avr_temp);
+            var todayclothes = clothesRecommand(clothesArr, aplTm);
             console.log("todayclothes:::" + JSON.stringify(todayclothes));
 
             var cnPm10Value =  StrGrab(ResultAirStr, '<span class="value _cnPm10Value">', '</span>');
