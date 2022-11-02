@@ -49,6 +49,7 @@ def scrape_headline_news():
     for index, news in enumerate(news_list):
         title = news.find("a").get_text().strip()
         link = url + news.find("a")["href"]
+        print("{}. {}".format(index+1, title)) #숫자 제목, index+1은 1부터 인덱스 시작
         print_news(index, title, link)
     print()
 
@@ -61,7 +62,7 @@ def scrape_it_news():
         a_idx = 0
         img = news.find("img")
         if img:
-            a_idx = 1 # img 태그가 있으면 1번째 a 태그의 정보를 사용
+            a_idx = 1 # img 태그가 있으면 1번째 a 태그의 정보를 사용(없으면 0 그대로)
 
         a_tag = news.find_all("a")[a_idx]
         title = a_tag.get_text().strip()
