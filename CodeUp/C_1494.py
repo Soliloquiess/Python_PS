@@ -1,19 +1,18 @@
+n, k = map(int, input().split())
 
-size,course = map(int, input().split())
-d = [0]*size
-result = [0]*size
+d = [0] * n
 
-for i in range(course):
+for _ in range(k):
     s, e, u = map(int, input().split())
-    d[s-1] = d[s-1]+u
-    d[e] = d[e]-u
+    d[s-1] += u
+    if e < n:
+        d[e] -= u
 
-start = 0
-for i in range(size):
-    result[i] = start+d[i]
-    start = result[i]
-    print(d[i], end=' ')
-print(' ')
+sum_list = []
+sum = 0
+for i in range(n):
+    sum += d[i]
+    sum_list.append(sum)
 
-for i in range(size):
-    print(result[i], end=' ')
+print(*d)
+print(*sum_list)
