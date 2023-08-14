@@ -1,68 +1,76 @@
-import os
+#5.1
+
 import random
-import msvcrt
 
 
-def clear_screen():
-    os.system('cls' if os.name == 'nt' else 'clear')
+def is_valid_input(n):
+    if not n:
+        print("입력값이 없습니다. 입력해주세요.")
+        return False
 
+    if not n.isdigit():
+        print("숫자가 들어있지 않습니다. 다시 입력하세요.")
+        return False
 
-def print_menu():
-    clear_screen()
-    print("┏━━━━━━━━━━━━┓")
-    print("┃ 배스킨 라빈스 31 게임      ┃")
-    print("┃                                       ┃")
-    print("┃ 1.게임 시작 (초급)           ┃")
-    print("┃ 2.게임 시작 (중급)           ┃")
-    print("┃ 3.게임 전적                     ┃")
-    print("┃ 0.종료                             ┃")
-    print("┗━━━━━━━━━━━━┛")
+    return True
 
 
 def main():
-    gCnt = 0
+    gameCnt = 0
     winCnt = 0
 
     while True:
-        clear_screen()
-        print_menu()
-        selMenu = int(input(" 선택 > "))
 
-        if selMenu < 0 or selMenu > 3:
-            continue
-
-        if selMenu == 0:
-            return
-
-        if selMenu == 3:
-            print("★ {}전 {}승 {}패 ★".format(gCnt, winCnt, gCnt - winCnt))
-            input("Press Enter to continue...")
-            continue
-
-        gCnt += 1
+        gameCnt += 1
         gameNum = 0
-
+        numberList = []
+        chkFlag = True;
         while True:
-            clear_screen()
+            playerInput = input("\t 숫자 입력 (공백으로 구분, 최대 3개) :: ")
+            playerNumbers = playerInput.split()  # 공백으로 분리하여 리스트 생성
+            lenPN = len(playerNumbers)
+            playerNumbersList = []
 
-            if selMenu == 1:
-                print("\t [초급] 숫자 개수 (1~3) >", end=" ")
-            elif selMenu == 2:
-                print("\t [중급] 숫자 개수 (1~3) >", end=" ")
-
-            player = int(input())
-            if player < 1 or player > 3:
+            for num in playerInput.split():
+                if not num.isdigit():
+                    print("잘못된 입력입니다. 숫자를 입력하세요.")
+                    chkFlag = False
+                    break
+                num = int(num)
+                if num in numberList:
+                    print("이미 입력한 숫자입니다. 다른 숫자를 입력하세요.")
+                    chkFlag = False
+                    break
+                if num > (numberList[-1] + 3 if numberList else 3):
+                    print("입력할 수 있는 범위를 초과하였습니다.")
+                    chkFlag = False
+                    break
+                playerNumbersList.append(num)
+            if(chkFlag == False):
+                chkFlag = True;
+                continue;
+            print(f"{len(playerNumbers)}");
+            if len(playerNumbers) == 0:
                 continue
 
-            for _ in range(player):
+            if lenPN > 3:
+                print("3개 이상의 숫자를 입력하셨습니다. 최대 3개까지만 입력 가능합니다.")
+                continue
+            print(f"학생: {len(playerNumbersList)} ")
+            numberList.extend(playerNumbersList)
+
+            useNumber = playerNumbersList[0]
+            if useNumber <= gameNum:
+                print("현재 수 보다 큰 수를 입력해주세요")
+                continue
+
+            for i in playerNumbersList:
                 gameNum += 1
-                print("{:2d} Player".format(gameNum))
+
+                print(f"Player 낸 숫자 : {gameNum}")
                 if gameNum == 30:
-                    print("\n ☆ 이겼습니다. 축하합니다. ☆")
+                    print("\n ※ 플레이어 승리 ※")
                     winCnt += 1
-                    break
-                if gameNum >= 31:
-                    print("\n ▽ 졌습니다. 다음 기회에... ▽")
                     break
 
             if gameNum == 29:
@@ -74,12 +82,19 @@ def main():
             else:
                 com = random.randint(1, 3)
 
-            for _ in range(com):
+            for j in range(com):
                 gameNum += 1
-                print("{:2d} Computer".format(gameNum))
+                numberList.append(gameNum)
+                print(f"computer 낸 숫자 : {gameNum}")
                 if gameNum == 30:
-                    print("\n ▽ 컴퓨터가 이겼습니다. 다음 기회에... ▽")
+                    print("\n※  컴퓨터의 승리 ※ ")
                     break
+
+            if gameNum >= 30:
+                print("\n ※ 게임 끝 ※")
+                break
+
+            print("현재까지 입력된 숫자 리스트:", numberList)
 
 
 if __name__ == "__main__":
