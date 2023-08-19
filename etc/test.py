@@ -1,76 +1,83 @@
+import random
 
-def is_valid_input(year, month, day, date, monthDay, dates):
-    if not year.isdigit():
-        print("년은 숫자로 입력되어야 합니다.")
-        return False
+def givehint(usernum_list, ground):  # 이전 예측과의 비교 및 가장 가까운 입력값 출력 함수
+    global compnum
+    global minnum
+    if abs(compnum - usernum_list[-1]) <= minnum[-1]:  # 가장 가까운 입력값 출력
+        minnum = [usernum_list[-1], abs(compnum - usernum_list[-1])]
 
-    if not month.isdigit():
-        print("월은 숫자로 입력되어야 합니다.")
-        return False
-
-    if not day.isdigit():
-        print("일은 숫자로 입력되어야 합니다.")
-        return False
-
-    year = int(year)
-    month = int(month)
-    day = int(day)
-
-    if year < 1970:
-        print("유효하지 않은 년입니다. 1970년 이후로 입력하세요.")
-        return False
-
-    if month < 1 or month > 12:
-        print("유효하지 않은 월입니다. 1부터 12 사이의 값을 입력하세요.")
-        return False
-
-    if day < 1 or day > monthDay[month - 1]:
-        print("유효하지 않은 일자입니다. 해당 월의 유효한 범위 내에서 입력하세요.")
-        return False
-
-    if date not in dates:
-        print("유효하지 않은 요일입니다. '월요일'부터 '일요일'까지의 값을 입력하세요.")
-        return False
-
-    return True
-
-
-def calculate(year, month, day, date, monthDay, dates): #변수명 뭐하지
-    resultYear  = int(year)
-    resultMonth  = int(month)
-    resultDay  = int(day)
-    resultDate  = dates.index(date)
-
-    for i in range(100):
-        daysOfmonth  = monthDay[resultMonth - 1]
-
-        if resultDay + 1 > daysOfmonth :
-            resultMonth += 1
-            resultDay = 1
-            if resultMonth > 12:
-                resultYear += 1
-                resultMonth = 1
+    if ground > 3:
+        if abs(compnum - usernum_list[-1]) > abs(compnum - usernum_list[-2]):  # 이전 예측과의 비교
+            print("이전 예측보다 더 멀어졌습니다. 다시 생각해 보세요. ")
+        elif abs(compnum - usernum_list[-1]) < abs(compnum - usernum_list[-2]):
+            print("이전 예측보다 더 가까워졌습니다. 다시 생각해 보세요. ")
         else:
-            resultDay += 1
+            print("다시 생각해 보세요. ")
 
-        resultDate = (resultDate + 1) % 7
-    resultDate = dates[resultDate]
-    return resultYear, resultMonth, resultDay, resultDate
+        print("지금까지 가장 가까운 입력값: ", minnum[-2])
+
+    else:
+        print("다시 생각해 보세요. ")
+    return None
 
 
-def main():
-    monthDay  = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-    dates = ["월요일", "화요일", "수요일", "목요일", "금요일", "토요일", "일요일"]
+def numcompare(usernum_list, ground):
+    global compnum
+    if compnum == usernum_list[-1]:
+        print("정답!\n컴퓨터의 랜덤 숫자: ", compnum)
+        return True
+    elif compnum > usernum_list[-1]:
+        print("Up!")
+        givehint(usernum_list, ground)
+        return False
+    else:
+        print('Down!')
+        givehint(usernum_list, ground)
+        return False
+
+
+def samenuminput(usernum_list, num):
+    if len(usernum_list) == 0:
+        return False
+    else:
+        for i in range(len(usernum_list)):
+            if num == usernum_list[i]:
+                return True
+            else:
+                continue
+        return False
+
+
+
+def numgame(usernum_list, ground):
     while True:
-        year, month, day, date = input("연도 월 일 요일을 입력하세요 (예: 2023 08 14 월요일): ").split()
+        ground += 1
+        print("\n", ground, "번째 시도")
+        num = input("예상하는 숫자를 입력하세요 ")
 
-        if is_valid_input(year, month, day, date, monthDay, dates):
+        if not num.isdigit():
+            print("숫자만 입력하세요 ")
+            continue
 
-            resultYear, resultMonth, resultDay, resultDate = calculate(year, month, day, date, monthDay, dates)
+        if not int(num) >= 0 and int(num) < 101:
+            print("0~100 사이의 수만 입력하세요. ")
+            continue
 
-            print(f"100일 뒤의 날짜는 {resultYear}년 {resultMonth}월 {resultDay}일 {resultDate}입니다.")
+        if samenuminput(usernum_list, int(num)):  # 이전 입력값을 다시 입력한 경우
+            print("이전에 입력했던 숫자입니다. 다시 입력하세요 ")
+            continue
+
+        usernum_list.append(int(num))
+        print(usernum_list)
+        result = numcompare(usernum_list, ground)
+        if result:
+            print("게임 종료!")
             break
 
-
-if __name__ == "__main__":
-    main()
+global compnum
+compnum = int(random.randint(0, 100))
+global minnum
+minnum = [101, 101]  # 임의 값 설정 minnum=[가장 가까운 입력값, 거리]
+usernum_list = []
+ground = 0
+numgame(usernum_list, ground)
