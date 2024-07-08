@@ -3,17 +3,35 @@ A = int(input_data[0])
 B = int(input_data[1])
 
 # 최대공약수(GCD) 구하기
-def gcd(a, b):
-    while b != 0:
-        a, b = b, a % b
-    return a
+a, b = A, B
+while b != 0:
+    a, b = b, a % b
+gcd = a
 
 # 최소공배수(LCM) 계산
-def lcm(a, b):
-    return (a * b) // gcd(a, b)
+lcm = (A * B) // gcd
 
 # 최소공배수 출력
-print(lcm(A, B))
+print(lcm)
+
+# 
+# # 입력 받기
+# input_data = input().split()
+# A = int(input_data[0])
+# B = int(input_data[1])
+# 
+# # 최대공약수(GCD) 구하기
+# def gcd(a, b):
+#     while b != 0:
+#         a, b = b, a % b
+#     return a
+# 
+# # 최소공배수(LCM) 계산
+# def lcm(a, b):
+#     return (a * b) // gcd(a, b)
+# 
+# # 최소공배수 출력
+# print(lcm(A, B))
 
 
 # import sys
