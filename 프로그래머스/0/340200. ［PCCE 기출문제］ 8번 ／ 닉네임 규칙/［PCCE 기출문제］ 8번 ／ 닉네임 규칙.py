@@ -11,7 +11,7 @@ def solution(nickname):
             answer += "0"
         else:
             answer += letter
-    while len(answer) < 4:
+    if len(answer) < 3:
         answer += "o"
     if len(answer) > 8:
         answer = answer[:8]
