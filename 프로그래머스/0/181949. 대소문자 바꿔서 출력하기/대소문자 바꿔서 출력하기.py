@@ -1,2 +1,10 @@
 str = input()
-print(str.swapcase())
+result = ""
+
+for ch in str:
+    if ch.isupper():
+        result += ch.lower()
+    else:
+        result += ch.upper()
+
+print(result)
