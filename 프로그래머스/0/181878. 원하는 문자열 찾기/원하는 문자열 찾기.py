@@ -6,3 +6,6 @@ def solution(myString, pat):
         if myString[i:i+len(pat)] == pat:
             return 1
     return 0
+
+#def solution(myString, pat):
+#    return 1 if pat.lower() in myString.lower() else 0
