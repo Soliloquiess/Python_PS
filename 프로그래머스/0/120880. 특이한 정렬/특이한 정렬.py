@@ -6,3 +6,8 @@ def solution(numlist, n):
             elif abs(numlist[i] - n) == abs(numlist[j] - n) and numlist[i] < numlist[j]:
                 numlist[i], numlist[j] = numlist[j], numlist[i]
     return numlist
+
+
+#def solution(numlist, n):
+    # 정렬 기준: (거리, -값)  → 거리가 가까울수록 앞, 같으면 큰 값이 앞
+#    return sorted(numlist, key=lambda x: (abs(x - n), -x))
