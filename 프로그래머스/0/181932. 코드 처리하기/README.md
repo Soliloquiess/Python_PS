@@ -1,10 +1,10 @@
 # [level 0] 코드 처리하기 - 181932 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181932) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181932?language=java) 
 
 ### 성능 요약
 
-메모리: 9.85 MB, 시간: 11.97 ms
+메모리: 391 MB, 시간: 352.37 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2025년 03월 30일 17:40:08
+2025년 11월 10일 02:46:31
 
 ### 문제 설명
 
